@@ -1,2 +1,2 @@
 # Demographic-Data-Analyzer
-pandas freecodecamp.org
+This is a pandas training exercise from freecodecamp.com
