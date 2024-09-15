@@ -3,10 +3,32 @@ import pandas as pd
 
 def calculate_demographic_data(print_data=True):
     # Read data from file
-    df = None
+    df = pd.read_csv('adult.data.csv')
+    
+    # print(df.head())
+    # print(df.columns)
+    # print(df.describe())
+    # print(df.dtypes)
+    # print(df.shape)
+    # print(df.info)
 
     # How many of each race are represented in this dataset? This should be a Pandas series with race names as the index labels.
-    race_count = None
+
+    unique_race_index = df['race'].unique()
+    
+    race_summary = pd.Series([
+        df['race'][df['race'] == 'White'].count(),
+        df['race'][df['race'] == 'Black'].count(),
+        df['race'][df['race'] == 'Asian-Pac-Islander'].count(),
+        df['race'][df['race'] == 'Amer-Indian-Eskimo'].count(),
+        df['race'][df['race'] == 'Other'].count()      
+    ])
+    race_summary.index = unique_race_index
+    print([race_summary])
+    
+    race_count = race_summary.to_list()
+
+    print(race_count)
 
     # What is the average age of men?
     average_age_men = None
@@ -63,7 +85,9 @@ def calculate_demographic_data(print_data=True):
         'min_work_hours': min_work_hours,
         'rich_percentage': rich_percentage,
         'highest_earning_country': highest_earning_country,
-        'highest_earning_country_percentage':
-        highest_earning_country_percentage,
+        'highest_earning_country_percentage': highest_earning_country_percentage,
         'top_IN_occupation': top_IN_occupation
     }
+
+if __name__ == '__main__':
+    calculate_demographic_data()
