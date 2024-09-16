@@ -13,22 +13,10 @@ def calculate_demographic_data(print_data=True):
     # print(df.info)
 
     # How many of each race are represented in this dataset? This should be a Pandas series with race names as the index labels.
-
-    unique_race_index = df['race'].unique()
     
-    race_summary = pd.Series([
-        df['race'][df['race'] == 'White'].count(),
-        df['race'][df['race'] == 'Black'].count(),
-        df['race'][df['race'] == 'Asian-Pac-Islander'].count(),
-        df['race'][df['race'] == 'Amer-Indian-Eskimo'].count(),
-        df['race'][df['race'] == 'Other'].count()      
-    ])
-    race_summary.index = unique_race_index
-    print([race_summary])
-    
-    race_count = race_summary.to_list()
+    # print(df['race'].value_counts())
 
-    print(race_count)
+    race_count = df['race'].value_counts()
 
     # What is the average age of men?
     average_age_men = None
