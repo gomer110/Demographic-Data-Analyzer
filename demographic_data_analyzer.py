@@ -18,6 +18,7 @@ def calculate_demographic_data(print_data=True):
     # What is the average age of men?
     
     print(df['sex'].unique())
+    
     # print(df['sex'][df['sex'] == 'Male'].mean())
     average_age_men = None
 
