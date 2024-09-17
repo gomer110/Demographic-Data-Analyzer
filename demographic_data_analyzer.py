@@ -4,13 +4,6 @@ def calculate_demographic_data(print_data=True):
     # Read data from file
     df = pd.read_csv('adult.data.csv')
     
-    # print(df.head())
-    # print(df.columns)
-    # print(df.describe())
-    # print(df.dtypes)
-    # print(df.shape)
-    # print(df.info)
-
     # How many of each race are represented in this dataset? This should be a Pandas series with race names as the index labels.
 
     race_count = df['race'].value_counts()
@@ -27,7 +20,9 @@ def calculate_demographic_data(print_data=True):
     # What percentage of people without advanced education make more than 50K?
 
     # with and without `Bachelors`, `Masters`, or `Doctorate`
-    higher_education = None
+    # print(df['education'][(df['education'] == 'Bachelors') | (df['education'] == 'Masters') | (df['education'] == 'Doctorate')].count())
+
+    higher_education = df['education'][(df['education'] == 'Bachelors') | (df['education'] == 'Masters') | (df['education'] == 'Doctorate')].count() / df['education'].count()
     lower_education = None
 
     # percentage with salary >50K

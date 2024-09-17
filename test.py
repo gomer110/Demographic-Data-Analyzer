@@ -1,5 +1,7 @@
 import pandas as pd
 
+# help(round)
+
 df = pd.read_csv('adult.data.csv')
 
 # print(df.head())
